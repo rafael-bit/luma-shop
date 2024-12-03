@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { HiOutlineXMark } from "react-icons/hi2";
+import { LuShoppingCart } from "react-icons/lu";
+import { IoSearchOutline } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -16,21 +18,21 @@ export default function Header() {
 	}, []);
 
 	return (
-		<header className="relative bg-neutral-50 bg-opacity-20 backdrop-blur-lg w-[95%] mx-auto rounded-3xl m-5 top-0  bg-primary/25 shadow-md z-50">
-			<nav aria-label="Header" className="mx-auto flex max-w-7xl items-center justify-between p-1 lg:px-8">
-				<div className={`flex lg:flex-1 transition-transform duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-					<Link href="#" className="-m-1.5 p-1.5 flex items-center gap-5">
+		<header className="relative bg-neutral-50 top-0 bg-neutral-50/25">
+			<nav aria-label="Header" className="mx-auto flex max-w-7xl items-center justify-around">
+				<div className={`flex transition-transform duration-1000 p-3 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+					<Link href="#" className="flex items-center gap-5">
 						<span className="sr-only">Luma</span>
 						<Image
 							alt=""
 							src="/logo.png"
-							width={65}
-							height={65}
+							width={50}
+							height={50}
 						/>
-						<h1 className="text-2xl font-bold text-primary hover:text-hover duration-300">Craftly</h1>
+						<h1 className="text-3xl font-bold text-primary hover:text-hover duration-300">Luma</h1>
 					</Link>
 				</div>
-				<div className="flex sm:hidden mr-5">
+				<div className="flex md:hidden mr-5">
 					<button
 						type="button"
 						onClick={() => setMobileMenuOpen(true)}
@@ -39,6 +41,52 @@ export default function Header() {
 						<span className="sr-only">Open main menu</span>
 						<FaBarsStaggered aria-hidden="true" className="size-6" />
 					</button>
+				</div>
+				<div className="flex items-center space-x-7">
+					<Link
+						href="/"
+						className={`text-sm/6 font-semibold text-neutral-900 transition-all duration-300 transform hover:-translate-y-1 hover:text-neutral-950 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+							} delay-[50ms]`}
+					>
+						Home
+					</Link>
+					<Link
+						href="/component"
+						className={`text-sm/6 font-semibold text-neutral-900 transition-all duration-300 transform hover:-translate-y-1 hover:text-neutral-950 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+							} delay-[50ms]`}
+					>
+						Product
+					</Link>
+					<Link
+						href="/"
+						className={`text-sm/6 font-semibold text-neutral-900 transition-all duration-300 transform hover:-translate-y-1 hover:text-neutral-950 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+							} delay-[50ms]`}
+					>
+						Collection
+					</Link>
+					<Link
+						href="/"
+						className={`text-sm/6 font-semibold text-neutral-900 transition-all duration-300 transform hover:-translate-y-1 hover:text-neutral-950 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+							} delay-[50ms]`}
+					>
+						About
+					</Link>
+					<Link
+						href="/"
+						className={`text-sm/6 font-semibold text-neutral-900 transition-all duration-300 transform hover:-translate-y-1 hover:text-neutral-950 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+							} delay-[50ms]`}
+					>
+						Contact
+					</Link>
+				</div>
+				<div className=" ml-6 flex items-center">
+					<div className="flex items-center space-x-7 px-3">
+						<IoSearchOutline className="w-5 h-5" />
+						<LuShoppingCart className="w-5 h-5" />
+					</div>
+					<div className="	border-l border-neutral-500 px-3 py-1.5">
+						<button>Login</button>
+					</div>
 				</div>
 			</nav>
 			<Dialog open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} className="fixed inset-0 z-10 bg-black bg-opacity-50">

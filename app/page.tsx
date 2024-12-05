@@ -30,6 +30,21 @@ export default function Home() {
   return (
     <>
       <Carousel />
+      <div className="w-full flex justify-center py-7">
+        <div className="w-full flex items-start justify-around">
+          <div className="text-center">
+            <h1 className="text-5xl font-bold text-neutral-900">{users.toLocaleString()}K</h1>
+            <p className="text-sm font-medium text-gray-500">Registered users</p>
+          </div>
+          <div className="text-center">
+            <h1 className="text-5xl font-bold text-neutral-900">{products.toLocaleString()}K</h1>
+            <p className="text-sm font-medium text-gray-500">Products sold</p>
+          </div>
+          <div className="text-center">
+            <h1 className="text-5xl font-bold text-neutral-900">80% OFF</h1>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

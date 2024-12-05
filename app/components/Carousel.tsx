@@ -33,7 +33,7 @@ const Carousel = () => {
 	};
 
 	useEffect(() => {
-		const interval = setInterval(nextSlide, 5000);
+		const interval = setInterval(nextSlide, 10000);
 		return () => clearInterval(interval);
 	}, []);
 
@@ -70,12 +70,12 @@ const Carousel = () => {
 						key={slide.id}
 						className="flex-shrink-0 w-full h-full flex flex-col items-center text-center justify-center"
 					>
-						<h1 className="text-5xl font-bold">{slide.title}</h1>
-						<p className="w-4/6 my-4 mb-7 text-sm text-gray-700 font-medium">{slide.description}</p>
+						<h1 className="w-5/6 sm:w-full text-3xl sm:text-5xl font-bold text-neutral-900">{slide.title}</h1>
+						<p className="w-4/6 my-4 mb-7 text-xs sm:text-sm text-gray-700 font-medium">{slide.description}</p>
 						<button className="flex items-center justify-center gap-4 mb-12 bg-neutral-900 rounded-full transition-all duration-300 hover:bg-neutral-950 text-white pl-4 px-1 py-1">
-							<span className="font-semibold">Order</span>
+							<span className="text-sm sm:text-base font-semibold">Order</span>
 							<div className="w-8 h-8 flex items-center justify-center bg-neutral-50 text-neutral-900 rounded-full">
-								<FaAngleRight className="w-5 h-5" />
+								<FaAngleRight className="w-4 h-4 sm:w-5 sm:h-5" />
 							</div>
 						</button>
 

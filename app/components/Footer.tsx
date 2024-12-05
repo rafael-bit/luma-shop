@@ -17,7 +17,7 @@ export default function Footer() {
 	return (
 		<footer
 			id="footer"
-			className={`transform opacity-0 transition-all duration-700 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}
+			className={`transform opacity-0 transition-all duration-700 ease-out p-5 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}
 		>
 			<div className="text-center sm:flex items-center sm:mx-auto max-w-full justify-around">
 				<div>

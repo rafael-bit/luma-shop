@@ -26,7 +26,7 @@ function Header() {
 					Luma Shop
 				</Link>
 				<Form action="/search" className="flex-1 mx-3">
-					<input type="text" name="query" placeholder="Search for products" className="w-[100%] max-w-4xl border border-neutral-600 bg-neutral-100 outline-none px-2 py-1 rounded-lg" />
+					<input type="text" name="query" placeholder="Search for products" className="w-[100%] max-w-4xl border border-neutral-400 bg-neutral-50 outline-none px-2 py-1 rounded-lg text-neutral-700 placeholder:text-neutral-600" />
 				</Form>
 				<div className="flex items-center space-x-4 mt-3 sm:mt-0 flex-1 sm:flex-none">
 					<Link

@@ -21,6 +21,8 @@ export const useBasketStore = create<BasketState>()(
 	persist(
 		(set, get) => ({
 			items: [],
+/*************  ✨ Codeium Command ⭐  *************/
+/******  27a1f9b7-39d0-4438-a509-01ae9a67695b  *******/
 			addItem: (product) =>
 				set((state) => {
 					const existingItem = state.items.find((item) => item.product._id === product._id);

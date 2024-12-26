@@ -39,6 +39,9 @@ export default async function page({ params }: { params: Promise<{ slug: string 
 							)}
 						</div>
 					</div>
+					<div>
+						
+					</div>
 				</div>
 			</div>
 		</div>

@@ -1,7 +1,7 @@
 'use client'
 
 import { Category } from "@/sanity.types"
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { Popover, PopoverContent, PopoverTrigger } from "./popover"
 import { Button } from "./button"
@@ -22,7 +22,6 @@ export default function CategorySelectorComponent({ categories }: CategorySelect
 		<Popover open={open} onOpenChange={setOpen}>
 			<PopoverTrigger asChild>
 				<Button
-					variant={"outline"}
 					role="combobox"
 					aria-expanded={open}
 					className="w-full max-w-full relative flex justify-center sm:justify-start sm:flex-none items-center space-x-2 border border-neutral-800 bg-neutral-950 outline-none px-2 py-1 rounded-lg text-neutral-100 placeholder:text-neutral-100"
@@ -31,7 +30,7 @@ export default function CategorySelectorComponent({ categories }: CategorySelect
 					<ChevronDown className="ml-2 h-4 w-4 shrink-0" />
 				</Button>
 			</PopoverTrigger>
-			<PopoverContent className="w-full p-0">
+			<PopoverContent className="w-full p-0 relative left-3">
 				<Command>
 					<CommandInput
 						placeholder="Search categories..."

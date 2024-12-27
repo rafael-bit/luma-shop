@@ -4,9 +4,12 @@ import { LuShoppingCart, LuPackage } from "react-icons/lu";
 import { ClerkLoaded, SignedIn, SignInButton, UserButton, useUser } from "@clerk/nextjs"
 import Link from "next/link"
 import Form from "next/form"
+import useBasketStore from "../app/(store)/store";
 
 function Header() {
 	const { user } = useUser()
+	const itemCount = useBasketStore((state) =>
+		state.items.reduce((total, item) => total + item.quantity, 0))
 	const createClerkPasskey = async () => {
 		try {
 			const response = await user?.createPasskey()
@@ -31,9 +34,10 @@ function Header() {
 				<div className="flex items-center space-x-4 mt-3 sm:mt-0 flex-1 sm:flex-none">
 					<Link
 						href="/basket"
-						className="relative flex flex-1 justify-center items-center sm:justify-start sm:flex-none gap-2 hover:text-neutral-900 hover:underline transition-all duration-200"
+						className="relative flex flex-1 justify-center items-center sm:justify-start sm:flex-none gap-2 hover:text-neutral-900 hover:underline transition-all duration-200 space-x-2 py-2 px-4"
 					>
 						<LuShoppingCart className="w-5 h-5" />
+						<span className="absolute -top2 -right-2 w-4 h-4 flex items-center justify-center text-xs bg-red-600 text-white rounded-full">{itemCount}</span>
 						<span>My basket</span>
 					</Link>
 					<ClerkLoaded>

@@ -12,24 +12,21 @@ interface BasketState {
 	addItem: (product: ProductType) => void;
 	removeItem: (productId: string) => void;
 	clearBasket: () => void;
-	getTotalPrice: () => number;
 	getItemCount: (productId: string) => number;
 	getGroupedItems: () => BasketItem[];
 }
 
-export const useBasketStore = create<BasketState>()(
+const useBasketStore = create<BasketState>()(
 	persist(
 		(set, get) => ({
 			items: [],
-/*************  ✨ Codeium Command ⭐  *************/
-/******  27a1f9b7-39d0-4438-a509-01ae9a67695b  *******/
 			addItem: (product) =>
 				set((state) => {
 					const existingItem = state.items.find((item) => item.product._id === product._id);
 
 					if (existingItem) {
 						return {
-							items: state.items.map((item) =>
+							items: state.items.map(item =>
 								item.product._id === product._id
 									? { ...item, quantity: item.quantity + 1 }
 									: item
@@ -50,35 +47,21 @@ export const useBasketStore = create<BasketState>()(
 					} else {
 						acc.push(item)
 					}
-
 					return acc
 				}, [] as BasketItem[])
 			})),
 
 			clearBasket: () => set({ items: [] }),
-			getTotalPrice: () =>
-				get().items.reduce(
-					(total, item) => total + (item.product.price ?? 0) * item.quantity,
-					0
-				),
 			getItemCount: (productId) => {
 				const item = get().items.find(item => item.product._id === productId)
 				return item ? item.quantity : 0
 			},
-			getGroupedItems: () => get().items.reduce((groupedItems, item) => {
-				const existingItem = groupedItems.find((groupedItem) => groupedItem.product._id === item.product._id);
-
-				if (existingItem) {
-					existingItem.quantity += item.quantity;
-				} else {
-					groupedItems.push({ ...item });
-				}
-
-				return groupedItems;
-			}, [] as BasketItem[])
+			getGroupedItems: () => get().items
 		}),
 		{
 			name: 'basket-store',
 		}
 	)
 );
+
+export default useBasketStore

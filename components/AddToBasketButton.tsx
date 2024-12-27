@@ -1,6 +1,6 @@
 'use client';
 
-import { useBasketStore } from "@/app/(store)/store";
+import useBasketStore from "@/app/(store)/store";
 import { ProductType } from "@/sanity.types";
 import { useState, useEffect } from "react";
 
@@ -26,7 +26,7 @@ export default function AddToBasketButton({ product, disabled }: AddToBasketButt
 		<div className="flex items-center justify-center space-x-3">
 			<button
 				onClick={() => removeItem(product._id)}
-				className={`w-8 h-8 flex items-center justify-center rounded-full transition-colors duration-200 ${itemCount > 0 ? "bg-blue-600 hover:bg-blue-700" : "bg-neutral-300 cursor-not-allowed"
+				className={`w-8 h-8 flex items-center justify-center rounded-full transition-colors duration-200 ${itemCount > 0 ? "bg-gray-400 hover:bg-gray-600" : "bg-neutral-300 cursor-not-allowed"
 					}`}
 				disabled={itemCount === 0 || disabled}
 			>

@@ -8,13 +8,7 @@ import AddToBasketButton from "@/components/AddToBasketButton"
 import Image from "next/image"
 import { imageUrl } from "@/sanity/lib/imageUrl"
 import Loader from "@/components/Loader"
-
-export type MetaData = {
-	orderNumber: string,
-	customerName: string,
-	customerEmail: string,
-	clerkUserId: string
-}
+import { createCheckoutSession, MetaData } from "@/actions/createCheckoutSession"
 
 export default function Basket() {
 	const groupedItems = useBasketStore((state) => state.getGroupedItems())

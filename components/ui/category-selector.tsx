@@ -24,7 +24,7 @@ export default function CategorySelectorComponent({ categories }: CategorySelect
 				<Button
 					role="combobox"
 					aria-expanded={open}
-					className="w-full max-w-full relative flex justify-center sm:justify-start sm:flex-none items-center space-x-2 border border-neutral-800 bg-neutral-950 outline-none px-2 py-1 rounded-lg text-neutral-100 placeholder:text-neutral-100"
+					className="relative flex justify-center sm:flex-none items-center space-x-2 border border-neutral-800 bg-neutral-950 outline-none py-1 rounded-lg text-neutral-100 placeholder:text-neutral-100"
 				>
 					{value ? categories.find((category) => category._id === value)?.title : 'Filter by category'}
 					<ChevronDown className="ml-2 h-4 w-4 shrink-0" />

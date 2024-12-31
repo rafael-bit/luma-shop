@@ -3,13 +3,12 @@ import Image from "next/image";
 import { imageUrl } from "@/sanity/lib/imageUrl"
 import { notFound } from "next/navigation";
 import { PortableText } from "next-sanity";
-import { Button } from "@/components/ui/button";
 import AddToBasketButton from "@/components/AddToBasketButton";
 
 export default async function page({ params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params;
 	const product = await getProductBySlug(slug)
-	const isOutOfStock = product.stock != null && product.stock <= 0
+	const isOutOfStock = product?.stock != null && product.stock <= 0
 
 	if (!product) {
 		return notFound()

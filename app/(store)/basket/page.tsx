@@ -2,7 +2,6 @@
 
 import { SignInButton, useAuth, useUser } from "@clerk/nextjs"
 import useBasketStore from "../store"
-import { useRouter } from "next/navigation"
 import { useState, useEffect } from "react"
 import AddToBasketButton from "@/components/AddToBasketButton"
 import Image from "next/image"
@@ -14,7 +13,6 @@ export default function Basket() {
 	const groupedItems = useBasketStore((state) => state.getGroupedItems())
 	const isSignedIn = useAuth()
 	const { user } = useUser()
-	const router = useRouter()
 	const [isClient, setIsClient] = useState(false)
 	const [isLoading, setIsLoading] = useState(false)
 
@@ -34,7 +32,7 @@ export default function Basket() {
 						Your basket is empty
 					</h1>
 					<p className="text-neutral-600  text-center">
-						You haven't added any products to your basket yet.
+						You haven&#39;t added any products to your basket yet.
 					</p>
 				</div>
 			</div>

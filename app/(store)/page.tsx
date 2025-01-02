@@ -40,7 +40,7 @@ export default async function Home() {
                 />
                 <div className="p-6">
                   <h3 className="text-2xl font-semibold text-neutral-700 mb-2">
-                    Women's Collection
+                    Women&#39;s Collection
                   </h3>
                   <p className="text-neutral-600 mb-4">
                     Elegance and sophistication for all occasions.
@@ -63,7 +63,7 @@ export default async function Home() {
                 />
                 <div className="p-6">
                   <h3 className="text-2xl font-semibold text-neutral-700 mb-2">
-                    Man's Collection
+                    Man&#39;s Collection
                   </h3>
                   <p className="text-neutral-600 mb-4">
                     Comfort and style for everyday life.

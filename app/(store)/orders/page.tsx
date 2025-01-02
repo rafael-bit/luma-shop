@@ -2,10 +2,6 @@ import { getMyOrders } from "@/sanity/lib/orders/getMyOrders"
 import { auth } from "@clerk/nextjs/server"
 import { redirect } from "next/navigation"
 
-interface Order {
-	orderNumber: string; 	
-}
-
 export default async function Orders() {
 	const { userId } = await auth()
 	if (!userId) {
